@@ -1,0 +1,25 @@
+DATOS DE ENTRADA - PROYECTO ETL SUPERMART COLOMBIA
+====================================================
+ventas_crudas.csv tiene 41 filas (incluye 1 fila duplicada).
+productos.csv tiene 5 productos y tiendas.csv tiene 5 tiendas.
+
+Errores introducidos A PROPÓSITO (el pipeline debe detectarlos/corregirlos):
+order_id | columna | problema
+----------------------------------------------------
+1003 | fecha     | usa '/' en vez de '-' (viene así en el enunciado)
+1003 | cliente_id| vacío (viene así en el enunciado)
+1010 | fecha     | usa '/' en vez de '-'
+1015 | fecha     | usa '/' en vez de '-'
+1022 | fecha     | usa '/' en vez de '-'
+1030 | fecha     | usa '/' en vez de '-'
+1012 | cliente_id| vacío
+1019 | cliente_id| vacío
+1027 | cliente_id| vacío
+1035 | cliente_id| vacío
+1025 | cantidad  | valor negativo (-1)
+1033 | producto_id| 'P000' no existe en productos.csv
+1020 | order_id  | aparece DOS veces (fila duplicada al final)
+
+Recomendaciones:
+- Leer los CSV con pandas usando encoding='utf-8-sig'.
+- No abrir ni guardar estos archivos con Excel: cambia el formato de las fechas.
