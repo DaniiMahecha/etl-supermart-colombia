@@ -1,0 +1,17 @@
+﻿ciudad,categoria,ventas_totales,num_transacciones,ticket_promedio
+Cartagena,Electrónicos,331.0,4,82.75
+Cali,Electrónicos,272.0,4,68.0
+Barranquilla,Ropa,270.0,2,135.0
+Barranquilla,Electrónicos,137.5,3,45.83
+Barranquilla,Hogar,125.0,2,62.5
+Bogotá,Hogar,125.0,2,62.5
+Bogotá,Electrónicos,121.0,2,60.5
+Medellín,Electrónicos,108.5,5,21.7
+Bogotá,Alimentos,100.0,3,33.33
+Cali,Hogar,100.0,3,33.33
+Cartagena,Ropa,90.0,1,90.0
+Cali,Alimentos,50.0,2,25.0
+Cartagena,Hogar,50.0,1,50.0
+Bogotá,Ropa,45.0,1,45.0
+Barranquilla,Alimentos,40.0,2,20.0
+Medellín,Alimentos,10.0,1,10.0

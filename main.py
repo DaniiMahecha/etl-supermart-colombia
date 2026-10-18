@@ -152,6 +152,14 @@ def ejecutar_etapa(nombre: str, funcion: Callable[..., Any], *argumentos: Any) -
     inicio = time.perf_counter()
     try:
         resultado = funcion(*argumentos)
+    except SystemExit as exc:
+        # Algunos módulos terminan con sys.exit("mensaje claro"): se muestra ese
+        # mensaje junto con el responsable y se termina con código de error 1.
+        logging.error(
+            "La etapa '%s' se detuvo: %s (responsable: %s)",
+            nombre, exc.code, RESPONSABLES[nombre],
+        )
+        raise SystemExit(1)
     except Exception:
         logging.exception(
             "Falló la etapa '%s' (responsable: %s)", nombre, RESPONSABLES[nombre]

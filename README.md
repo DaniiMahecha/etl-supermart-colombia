@@ -114,19 +114,35 @@ Los archivos se guardan en UTF-8 con BOM (`utf-8-sig`) para que las tildes se ve
 
 ## Resultados principales
 
-> **PENDIENTE: completar después de ejecutar el pipeline con el código final** (tomar los datos de `output/reporte_ejecutivo.txt`).
+Resultados de la ejecución sobre los datos de ejemplo incluidos en `data/` (el detalle completo está en `output/reporte_ejecutivo.txt`):
 
-- Ventas totales: _por completar_
-- Ciudad líder en ventas: _por completar_
-- Categoría líder en ventas: _por completar_
-- Día de la semana con más transacciones: _por completar_
-- Indicadores de calidad de datos (duplicados eliminados, filas inválidas, clientes desconocidos): _por completar_
+| Métrica | Valor |
+|---|---|
+| Transacciones analizadas | 38 (de 41 iniciales) |
+| Ventas totales | 1,975.00 |
+| Promedio por venta | 51.97 |
+| Ciudad líder en ventas | Barranquilla: 572.50 (29.0% del total) |
+| Categoría líder en ventas | Electrónicos: 970.00 (49.1% del total) |
+| Día con más transacciones | Viernes: 11 transacciones |
+
+**Calidad de los datos:** de las 41 filas iniciales se eliminó 1 duplicado y 2 filas inválidas (una con cantidad negativa y otra con un producto que no existe en el catálogo), y 5 ventas sin cliente quedaron asignadas a `CLIENTE_DESCONOCIDO`. En total, 38 filas pasaron a la tabla final.
 
 ## Hallazgos y conclusiones
 
-> **PENDIENTE: completar con los hallazgos del equipo antes de la demo.**
+Los hallazgos se basan en el conjunto de datos de ejemplo generado para este ejercicio.
 
-- _por completar_
+1. **Electrónicos concentra casi la mitad de las ventas** (49.1%), y Tablets es la subcategoría que más vende (660.00).
+2. **Barranquilla lidera en ventas totales, pero Cartagena tiene el ticket promedio más alto.** Barranquilla suma 572.50 en 9 transacciones, mientras que Cartagena promedia 78.50 por venta con solo 6 transacciones. Medellín queda al final, con 118.50 en ventas y un ticket promedio de 19.75.
+3. **Las ventas se concentran de jueves a sábado:** estos tres días reúnen 27 de las 38 transacciones (71.1%). El viernes es el día más fuerte, con 11 transacciones y 598.00 en ventas.
+4. **Las ventas de monto alto pesan mucho:** 17 de las 38 ventas son Altas (50 o más), 15 son Medias y 6 son Bajas.
+5. **La calidad de los datos de origen necesita mejorar:** el 7.3% de las filas (3 de 41) debió eliminarse y el 12.2% de las ventas (5 de 41) llegó sin cliente identificado.
+
+### Recomendaciones
+
+- Reforzar inventario y personal de jueves a sábado, que es cuando se concentra la demanda.
+- Revisar el surtido y los precios en Medellín, donde el ticket promedio es muy inferior al del resto de ciudades.
+- Impulsar la categoría Electrónicos, en especial Tablets, que es la que más aporta a las ventas.
+- Exigir el registro del cliente y validar cantidades y códigos de producto en el punto de venta, para reducir los errores en origen.
 
 ## Tecnologías
 

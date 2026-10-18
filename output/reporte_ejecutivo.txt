@@ -1,0 +1,18 @@
+﻿REPORTE EJECUTIVO - SUPERMART COLOMBIA
+============================================
+
+MÉTRICAS PRINCIPALES
+Transacciones: 38
+Transacciones con monto válido: 38
+Ventas totales: 1,975.00
+Promedio por venta: 51.97
+
+TOP PERFORMERS
+Ciudad líder: Barranquilla (572.50)
+Categoría líder: Electrónicos (970.00)
+
+INDICADORES DE CALIDAD DE LOS DATOS
+Filas iniciales: 41
+Duplicados eliminados: 1
+Clientes desconocidos: 5
+Filas invalidas eliminadas: 2
