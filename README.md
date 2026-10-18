@@ -63,9 +63,9 @@ etl_supermart/
    source .venv/bin/activate
    ```
 
-3. **Instalar las librerías:**
+3. **Instalar las librerías** (se usa `python -m pip` para instalarlas en el mismo Python que ejecutará el proyecto):
    ```
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
    ```
 
 4. **Ejecutar el pipeline completo:**
@@ -77,6 +77,26 @@ etl_supermart/
 5. **Revisar los resultados** en la carpeta `output/`.
 
 > Los datos de entrada ya vienen incluidos en `data/`. Si se quieren regenerar (son reproducibles, siempre salen los mismos), se puede ejecutar `python src/generar_datos.py`.
+
+## Solución de problemas
+
+**Error `No module named 'matplotlib'` (o `pandas`, `numpy`, `seaborn`)**
+
+Significa que las librerías están instaladas en un Python distinto del que ejecuta `main.py`. Pasa con frecuencia cuando hay varias versiones de Python en el computador: `pip install` instala en una y el editor (por ejemplo VS Code) ejecuta con otra.
+
+Solución: instalar las librerías con el **mismo Python que ejecuta el proyecto**, usando `python -m pip` desde la carpeta del proyecto:
+```
+python -m pip install -r requirements.txt
+```
+Si se usa la ruta completa del intérprete en PowerShell, el comando lleva `&` al inicio:
+```
+& "C:\ruta\a\python.exe" -m pip install -r requirements.txt
+```
+Para saber qué Python usa VS Code: abrir la paleta de comandos (`Ctrl+Shift+P`) y elegir *Python: Select Interpreter*, o mirar la versión que aparece abajo a la derecha de la ventana. Además, cuando falta una librería, `main.py` muestra en el mensaje de error el comando exacto con el Python que está usando.
+
+**Error `No se pudo importar una parte del pipeline` con el mensaje "Revisa que existan en `src/` los 5 archivos"**
+
+Falta alguno de los archivos del proyecto en `src/` (`extract.py`, `transform_clean.py`, `transform_enrich.py`, `load.py` o `reports.py`), o está en otra carpeta. Verificar que los cinco estén dentro de `src/`.
 
 ## Cómo funciona el pipeline
 
