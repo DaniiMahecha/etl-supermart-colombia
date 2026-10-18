@@ -125,11 +125,23 @@ def importar_modulos() -> Dict[str, Callable[..., Any]]:
         from reports import generar_reportes
     except ImportError as exc:
         logging.error("No se pudo importar una parte del pipeline: %s", exc)
-        logging.error(
-            "Revisa que existan en src/ los 5 archivos (extract.py, "
-            "transform_clean.py, transform_enrich.py, load.py, reports.py) "
-            "y que cada uno tenga la función indicada en el contrato."
+        modulos_del_proyecto = (
+            "extract", "transform_clean", "transform_enrich", "load", "reports"
         )
+        if isinstance(exc, ModuleNotFoundError) and exc.name not in modulos_del_proyecto:
+            # No falta un archivo del proyecto: falta una librería externa
+            # (pandas, matplotlib...) en el Python que está ejecutando este programa.
+            logging.error("Falta instalar la librería '%s' en este Python.", exc.name)
+            logging.error(
+                'Instálala desde la carpeta del proyecto con:  "%s" -m pip install -r requirements.txt',
+                sys.executable,
+            )
+        else:
+            logging.error(
+                "Revisa que existan en src/ los 5 archivos (extract.py, "
+                "transform_clean.py, transform_enrich.py, load.py, reports.py) "
+                "y que cada uno tenga la función indicada en el contrato."
+            )
         raise SystemExit(1)
 
     return {
